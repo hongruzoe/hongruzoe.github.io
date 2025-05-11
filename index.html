@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+    <html lang="zh-CN">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>周洪如 · 个人主页</title>
+      <!-- Tailwind CSS v3 -->
+      <script src="https://cdn.tailwindcss.com"></script>
+      <!-- Font Awesome -->
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+      <!-- Google Fonts -->
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      
+      <!-- Tailwind 配置 -->
+      <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                primary: '#FFD600', // 主色调：黄色
+                secondary: '#232323', // 卡片背景
+                dark: '#181818', // 主背景
+                light: '#FFFFFF', // 文本
+                muted: '#BDBDBD', // 次要文本
+                'muted-dark': '#888888', // 更暗的次要文本
+              },
+              fontFamily: {
+                inter: ['Inter', 'sans-serif'],
+              },
+              boxShadow: {
+                'card': '0 4px 24px 0 rgba(0,0,0,0.12)',
+                'card-hover': '0 8px 32px 0 rgba(0,0,0,0.18)',
+              },
+            },
+          }
+        }
+      </script>
+      
+      <style type="text/tailwindcss">
+        @layer utilities {
+          .content-auto {
+            content-visibility: auto;
+          }
+          .text-shadow {
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+          }
+          .card-gradient {
+            background: linear-gradient(145deg, #252525, #202020);
+          }
+          .transition-custom {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          }
+        }
+      </style>
+    </head>
+    <body class="bg-dark text-light font-inter antialiased">
+      <!-- 导航栏 -->
+      <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+          <nav class="hidden md:flex space-x-8">
+            <a href="#about" class="text-light hover:text-primary transition-colors font-medium">关于我</a>
+            <a href="#projects" class="text-light hover:text-primary transition-colors font-medium">项目经历</a>
+            <a href="#education" class="text-light hover:text-primary transition-colors font-medium">教育背景</a>
+            <a href="#contact" class="text-light hover:text-primary transition-colors font-medium">联系我</a>
+          </nav>
+          
+          <!-- 移动端菜单按钮 -->
+          <button class="md:hidden text-light text-2xl" id="menuBtn">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+        
+        <!-- 移动端菜单 -->
+        <div class="md:hidden bg-secondary absolute w-full left-0 top-full transform -translate-y-full opacity-0 transition-all duration-300 pointer-events-none" id="mobileMenu">
+          <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
+            <a href="#about" class="text-light hover:text-primary transition-colors font-medium py-2">关于我</a>
+            <a href="#projects" class="text-light hover:text-primary transition-colors font-medium py-2">项目经历</a>
+            <a href="#education" class="text-light hover:text-primary transition-colors font-medium py-2">教育背景</a>
+            <a href="#contact" class="text-light hover:text-primary transition-colors font-medium py-2">联系我</a>
+          </div>
+        </div>
+      </header>
+
+      <!-- 主要内容 -->
+      <main class="container mx-auto px-4 pt-28 pb-16">
+        <!-- 关于我 -->
+        <section id="about" class="mb-24 scroll-mt-24">
+          <div class="flex flex-col md:flex-row items-start md:items-center gap-8">
+            <div class="relative">
+              <div class="w-40 h-40 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-primary shadow-lg">
+                <img src="https://picsum.photos/300/300?random=1" alt="周洪如头像" class="w-full h-full object-cover transition-transform duration-700 hover:scale-110">
+              </div>
+              <!-- 装饰元素 -->
+              <div class="absolute -bottom-3 -right-3 w-12 h-12 bg-primary rounded-full flex items-center justify-center shadow-lg">
+                <i class="fa-solid fa-star text-dark text-xl"></i>
+              </div>
+            </div>
+            
+            <div class="space-y-6">
+              <div>
+                <h1 class="text-[clamp(2rem,5vw,3rem)] font-bold text-primary mb-2 text-shadow">周洪如</h1>
+                <div class="flex flex-wrap gap-3 mb-6">
+                  <span class="px-4 py-2 bg-secondary rounded-full text-primary text-sm font-medium flex items-center gap-2">
+                    <i class="fa-solid fa-briefcase"></i> 8年产品&用户运营
+                  </span>
+                  <span class="px-4 py-2 bg-secondary rounded-full text-primary text-sm font-medium flex items-center gap-2">
+                    <i class="fa-solid fa-graduation-cap"></i> 4年教育咨询
+                  </span>
+                  <span class="px-4 py-2 bg-secondary rounded-full text-primary text-sm font-medium flex items-center gap-2">
+                    <i class="fa-solid fa-globe"></i> 国际复合背景
+                  </span>
+                </div>
+              </div>
+              
+              <div class="space-y-4 text-muted">
+                <p>曾就职于乐视、小米、360、滴滴。</p>
+                <p class="font-semibold text-light">0-1创新增长操盘手</p>
+                <p>滴滴主导宠物专车北京MVP开城（滴滴专车首个场景化成功探索）、小米运动搭建近千万GMV健身付费体系。</p>
+                <p class="font-semibold text-light">全链路运营专家</p>
+                <p>覆盖产品设计-定价策略-服务SOP-用户运营完整链条，擅长用户分群、增长产品设计、会员体系搭建。</p>
+                <p class="font-semibold text-light">国际复合跨界能力</p>
+                <p>海外市场跨界国内互联网，2014都柏林谷歌创业大赛No.1，AI应用提效践行者。</p>
+                <p class="font-semibold text-light">目标：深耕用户增长领域，持续探索AI赋能。</p>
+              </div>
+              
+              <div class="flex flex-wrap gap-6 pt-2">
+                <div class="flex items-center gap-2 text-muted">
+                  <i class="fa-solid fa-phone text-primary"></i>
+                  <span>13552640411</span>
+                </div>
+                <div class="flex items-center gap-2 text-muted">
+                  <i class="fa-solid fa-envelope text-primary"></i>
+                  <span>hongrutrinity@hotmail.com</span>
+                </div>
+              </div>
+              
+              <div class="flex flex-wrap gap-4 pt-2">
+                <div class="flex flex-col gap-2">
+                  <a href="#" class="px-5 py-2 bg-secondary rounded-lg text-primary hover:bg-primary hover:text-dark transition-all duration-300 font-medium flex items-center gap-2">
+                    <i class="fa-brands fa-weixin"></i> 
+                    <span>微信公众号：周小没六儿</span>
+                  </a>
+                  <p class="text-muted text-sm pl-12">想要捅破AI技术与生活的那层窗户纸，分享AI干货，思考与洞察；已帮助上百人进行AI工作赋能提效。</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <!-- 项目经历 -->
+        <section id="projects" class="mb-24 scroll-mt-24">
+          <div class="flex items-center gap-3 mb-8">
+            <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
+              <i class="fa-solid fa-briefcase text-dark"></i>
+            </div>
+            <h2 class="text-[clamp(1.5rem,3vw,2rem)] font-bold text-primary">项目经历</h2>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- 项目卡片1 -->
+            <div class="bg-secondary rounded-xl overflow-hidden shadow-card hover:shadow-card-hover transition-custom transform hover:-translate-y-1">
+              <div class="relative h-48 overflow-hidden">
+                <img src="https://picsum.photos/400/200?random=2" alt="滴滴出行" class="w-full h-full object-cover transition-transform duration-700 hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent"></div>
+                <div class="absolute bottom-4 left-4">
+                  <h3 class="text-xl font-bold text-primary">滴滴出行</h3>
+                  <p class="text-muted">产品与用户运营专家</p>
+                </div>
+              </div>
+              <div class="p-6 space-y-4">
+                <div class="text-sm text-muted-dark">2020.12 - 2025.03</div>
+                <div class="space-y-2 text-muted">
+                  <p class="font-semibold text-light">宠物专车项目 OWNER：</p>
+                  <p>从0-1打造宠物专车，参与服务SOP、选城、定价、产品设计等，协作BC两端团队成功推进北京MVP试点上线，服务覆盖全国49城。</p>
+                  <p class="font-semibold text-light">豪华车用户运营：</p>
+                  <p>深度参与策略设计与实施，搭建差异化用户牵引工具，实现目标用户YOY50%增长。</p>
+                  <p class="font-semibold text-light">核心能力：</p>
+                  <p>不确定性下拿结果，资源有限快速验证商业模式，高溢价品类用户认知及运营方法论沉淀。</p>
+                </div>
+                <div class="flex flex-wrap gap-2 pt-2">
+                  <span class="px-3 py-1 bg-dark rounded-full text-primary text-xs">策略</span>
+                  <span class="px-3 py-1 bg-dark rounded-full text-primary text-xs">会员</span>
+                  <span class="px-3 py-1 bg-dark rounded-full text-primary text-xs">增长</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- 项目卡片2 -->
+            <div class="bg-secondary rounded-xl overflow-hidden shadow-card hover:shadow-card-hover transition-custom transform hover:-translate-y-1">
+              <div class="relative h-48 overflow-hidden">
+                <img src="https://picsum.photos/400/200?random=3" alt="360" class="w-full h-full object-cover transition-transform duration-700 hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent"></div>
+                <div class="absolute bottom-4 left-4">
+                  <h3 class="text-xl font-bold text-primary">奇虎360科技有限公司</h3>
+                  <p class="text-muted">高级产品运营专家</p>
+                </div>
+              </div>
+              <div class="p-6 space-y-4">
+                <div class="text-sm text-muted-dark">2019.9 - 2020.9</div>
+                <div class="space-y-2 text-muted">
+                  <p class="font-semibold text-light">商业化收入负责：</p>
+                  <p>主导360智能摄像机APP付费产品构建，推动协同部门支持，提升新手转化率（3%→8%），上半年付费订单同比增长100%。</p>
+                  <p class="font-semibold text-light">核心能力：</p>
+                  <p>工具型产品+垂类付费服务混合增长，打破单一硬件业务增长模式。</p>
+                </div>
+                <div class="flex flex-wrap gap-2 pt-2">
+                  <span class="px-3 py-1 bg-dark rounded-full text-primary text-xs">工具产品</span>
+                  <span class="px-3 py-1 bg-dark rounded-full text-primary text-xs">付费服务</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- 项目卡片3 -->
+            <div class="bg-secondary rounded-xl overflow-hidden shadow-card hover:shadow-card-hover transition-custom transform hover:-translate-y-1">
+              <div class="relative h-48 overflow-hidden">
+                <img src="https://picsum.photos/400/200?random=4" alt="小米运动" class="w-full h-full object-cover transition-transform duration-700 hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent"></div>
+                <div class="absolute bottom-4 left-4">
+                  <h3 class="text-xl font-bold text-primary">小米运动</h3>
+                  <p class="text-muted">高级产品运营经理</p>
+                </div>
+              </div>
+              <div class="p-6 space-y-4">
+                <div class="text-sm text-muted-dark">2018.8 - 2019.8</div>
+                <div class="space-y-2 text-muted">
+                  <p class="font-semibold text-light">搭建TO C端付费产品：</p>
+                  <p>从0探索减脂商业化项目，搭建并完善业务模型，首年收入近千万；通过增长实验，优化转化漏斗，高价值产品复购率达20%。</p>
+                  <p class="font-semibold text-light">核心能力：</p>
+                  <p>健身行业2C商业化，爆款打造与社群转化，A/B测试+迭代，扩展4大付费品类。</p>
+                </div>
+                <div class="flex flex-wrap gap-2 pt-2">
+                  <span class="px-3 py-1 bg-dark rounded-full text-primary text-xs">会员产品</span>
+                  <span class="px-3 py-1 bg-dark rounded-full text-primary text-xs">增长实验</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- 项目卡片4 -->
+            <div class="bg-secondary rounded-xl overflow-hidden shadow-card hover:shadow-card-hover transition-custom transform hover:-translate-y-1">
+              <div class="relative h-48 overflow-hidden">
+                <img src="https://picsum.photos/400/200?random=5" alt="乐视视频" class="w-full h-full object-cover transition-transform duration-700 hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent"></div>
+                <div class="absolute bottom-4 left-4">
+                  <h3 class="text-xl font-bold text-primary">乐视视频</h3>
+                  <p class="text-muted">会员运营经理</p>
+                </div>
+              </div>
+              <div class="p-6 space-y-4">
+                <div class="text-sm text-muted-dark">2016.6 - 2018.8</div>
+                <div class="space-y-2 text-muted">
+                  <p class="font-semibold text-light">活动运营：</p>
+                  <p>月度、季度、年度活动策划与执行，活动收入提升30%以上。</p>
+                  <p class="font-semibold text-light">分众运营：</p>
+                  <p>根据用户行为定向触达，提高付费转化率。</p>
+                  <p class="font-semibold text-light">新媒体运营：</p>
+                  <p>创新会员权益，制造爆款文章，盘活片库，增强粉丝活跃。</p>
+                  <p class="font-semibold text-light">核心能力：</p>
+                  <p>用户分层精准推送，创造多篇10万+爆文，提升口碑与活跃。</p>
+                </div>
+                <div class="flex flex-wrap gap-2 pt-2">
+                  <span class="px-3 py-1 bg-dark rounded-full text-primary text-xs">会员运营</span>
+                  <span class="px-3 py-1 bg-dark rounded-full text-primary text-xs">新媒体</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- 项目卡片5 -->
+            <div class="bg-secondary rounded-xl overflow-hidden shadow-card hover:shadow-card-hover transition-custom transform hover:-translate-y-1">
+              <div class="relative h-48 overflow-hidden">
+                <img src="https://picsum.photos/400/200?random=6" alt="圣三一大学" class="w-full h-full object-cover transition-transform duration-700 hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent"></div>
+                <div class="absolute bottom-4 left-4">
+                  <h3 class="text-xl font-bold text-primary">爱尔兰都柏林圣三一大学</h3>
+                  <p class="text-muted">市场推广</p>
+                </div>
+              </div>
+              <div class="p-6 space-y-4">
+                <div class="text-sm text-muted-dark">2014.8 - 2015.9</div>
+                <div class="space-y-2 text-muted">
+                  <p class="font-semibold text-light">国际办公室任职：</p>
+                  <p>协助国内中介机构开展活动，负责新媒体运营，策划并制作学校在中国市场首个宣传片。</p>
+                </div>
+                <div class="flex flex-wrap gap-2 pt-2">
+                  <span class="px-3 py-1 bg-dark rounded-full text-primary text-xs">市场推广</span>
+                  <span class="px-3 py-1 bg-dark rounded-full text-primary text-xs">新媒体</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <!-- 教育背景 -->
+        <section id="education" class="mb-24 scroll-mt-24">
+          <div class="flex items-center gap-3 mb-8">
+            <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
+              <i class="fa-solid fa-graduation-cap text-dark"></i>
+            </div>
+            <h2 class="text-[clamp(1.5rem,3vw,2rem)] font-bold text-primary">教育背景</h2>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- 教育卡片1 -->
+            <div class="bg-secondary rounded-xl p-6 shadow-card hover:shadow-card-hover transition-custom transform hover:-translate-y-1">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 rounded-full bg-dark flex items-center justify-center flex-shrink-0">
+                  <i class="fa-solid fa-school text-primary text-xl"></i>
+                </div>
+                <div class="space-y-2">
+                  <h3 class="font-bold text-primary text-lg">爱尔兰都柏林圣三一大学 / 复旦大学</h3>
+                  <p class="text-muted">国际管理 研究生</p>
+                  <p class="text-muted-dark text-sm">2013 - 2014</p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- 教育卡片2 -->
+            <div class="bg-secondary rounded-xl p-6 shadow-card hover:shadow-card-hover transition-custom transform hover:-translate-y-1">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 rounded-full bg-dark flex items-center justify-center flex-shrink-0">
+                  <i class="fa-solid fa-school text-primary text-xl"></i>
+                </div>
+                <div class="space-y-2">
+                  <h3 class="font-bold text-primary text-lg">西北民族大学</h3>
+                  <p class="text-muted">旅游管理 本科</p>
+                  <p class="text-muted-dark text-sm">2006 - 2010</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <!-- 联系我 -->
+        <section id="contact" class="scroll-mt-24">
+          <div class="flex items-center gap-3 mb-8">
+            <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
+              <i class="fa-solid fa-address-card text-dark"></i>
+            </div>
+            <h2 class="text-[clamp(1.5rem,3vw,2rem)] font-bold text-primary">联系我</h2>
+          </div>
+          
+          <div class="bg-secondary rounded-xl p-8 shadow-card">
+            <div class="space-y-6">
+              <h3 class="text-xl font-bold text-light">联系方式</h3>
+              <div class="space-y-4">
+                <div class="flex items-start gap-4">
+                  <div class="w-10 h-10 rounded-full bg-dark flex items-center justify-center flex-shrink-0">
+                    <i class="fa-solid fa-phone text-primary"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-primary font-medium">电话</h4>
+                    <p class="text-muted">13552640411</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-start gap-4">
+                  <div class="w-10 h-10 rounded-full bg-dark flex items-center justify-center flex-shrink-0">
+                    <i class="fa-solid fa-envelope text-primary"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-primary font-medium">邮箱</h4>
+                    <p class="text-muted">hongrutrinity@hotmail.com</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-start gap-4">
+                  <div class="w-10 h-10 rounded-full bg-dark flex items-center justify-center flex-shrink-0">
+                    <i class="fa-brands fa-weixin text-primary"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-primary font-medium">微信公众号</h4>
+                    <p class="text-muted">周小没六儿</p>
+                    <p class="text-muted text-sm mt-1">想要捅破AI技术与生活的那层窗户纸，分享AI干货，思考与洞察；已帮助上百人进行AI工作赋能提效。</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      
+      <!-- 页脚 -->
+      <footer class="bg-secondary py-8 mt-16">
+        <div class="container mx-auto px-4">
+          <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="text-muted text-center md:text-left">
+              <p>© 2025 周洪如 个人主页. 保留所有权利.</p>
+            </div>
+            <div class="flex gap-4">
+              <a href="#" class="text-muted hover:text-primary transition-colors">
+                <i class="fa-brands fa-linkedin-in"></i>
+              </a>
+              <a href="#" class="text-muted hover:text-primary transition-colors">
+                <i class="fa-brands fa-github"></i>
+              </a>
+              <a href="#" class="text-muted hover:text-primary transition-colors">
+                <i class="fa-brands fa-twitter"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
+      
+      <!-- 回到顶部按钮 -->
+      <button id="backToTop" class="fixed bottom-8 right-8 w-12 h-12 rounded-full bg-primary text-dark flex items-center justify-center shadow-lg transform translate-y-20 opacity-0 transition-all duration-300 hover:bg-primary/90">
+        <i class="fa-solid fa-arrow-up"></i>
+      </button>
+      
+      <script>
+        // 导航栏滚动效果
+        const navbar = document.getElementById('navbar');
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 50) {
+            navbar.classList.add('bg-secondary/90', 'backdrop-blur-md', 'shadow-md');
+            navbar.classList.remove('py-4');
+            navbar.classList.add('py-2');
+            
+            backToTop.classList.remove('translate-y-20', 'opacity-0');
+            backToTop.classList.add('translate-y-0', 'opacity-100');
+          } else {
+            navbar.classList.remove('bg-secondary/90', 'backdrop-blur-md', 'shadow-md');
+            navbar.classList.remove('py-2');
+            navbar.classList.add('py-4');
+            
+            backToTop.classList.add('translate-y-20', 'opacity-0');
+            backToTop.classList.remove('translate-y-0', 'opacity-100');
+          }
+        });
+        
+        // 移动端菜单
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        menuBtn.addEventListener('click', () => {
+          if (mobileMenu.classList.contains('opacity-0')) {
+            mobileMenu.classList.remove('opacity-0', '-translate-y-full', 'pointer-events-none');
+            mobileMenu.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
+            menuBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+          } else {
+            mobileMenu.classList.add('opacity-0', '-translate-y-full', 'pointer-events-none');
+            mobileMenu.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+            menuBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+          }
+        });
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            
+            // 关闭移动端菜单
+            if (!mobileMenu.classList.contains('opacity-0')) {
+              mobileMenu.classList.add('opacity-0', '-translate-y-full', 'pointer-events-none');
+              mobileMenu.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+              menuBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+            }
+            
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+              window.scrollTo({
+                top: targetElement.offsetTop - 80,
+                behavior: 'smooth'
+              });
+            }
+          });
+        });
+        
+        // 回到顶部
+        backToTop.addEventListener('click', () => {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        });
+        
+        // 卡片动画
+        const observerOptions = {
+          root: null,
+          rootMargin: '0px',
+          threshold: 0.1
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('animate-fadeIn');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+        
+        document.querySelectorAll('.card, .edu-card').forEach(card => {
+          observer.observe(card);
+        });
+      </script>
+    </body>
+    </html>
+  
